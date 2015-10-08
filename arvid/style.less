@@ -1,0 +1,120 @@
+@import "normalize.less";
+@import "abstract_classes.less";
+@import "gridiculous.css";
+
+body {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	height: 100vh;
+	width: 100%;
+	
+	background: #5A9CAA;
+	.transition(all .4s ease); 
+	//.bg-gradient 
+
+}
+
+#hero {
+	display: block;
+	position: absolute;
+	top: 0;
+	z-index: -1;
+	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	height: 100vh;
+	width: 100%;
+	.bg-gradient;
+	
+	//opacity: 0;
+	.transition(all 2s ease-in-out); 
+}
+
+
+.bg-gradient {
+
+	background: -moz-linear-gradient(-30deg,  #185f82 0%, #97d5d0 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#185f82), color-stop(100%,#97d5d0)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-30deg,  #185f82 0%,#97d5d0 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-30deg,  #185f82 0%,#97d5d0 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-30deg,  #185f82 0%,#97d5d0 100%); /* IE10+ */
+	background: linear-gradient(120deg,  #185f82 0%,#97d5d0 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#185f82', endColorstr='#97d5d0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.fade-in {
+	opacity: 1 !important;
+	
+}
+
+
+.ClassyCountdown-wrapper {
+
+	//background-color: red;
+	color: white;
+	font-family: "Titillium Web";
+	.text-shadow(0px 1px 2px rgba(0,0,0,0.27));
+	padding-top: 33vh;
+
+	.ClassyCountdown-value {
+
+		// -moz-transform: scaleX(-1);
+  //       -o-transform: scaleX(-1);
+  //       -webkit-transform: scaleX(-1);
+  //       transform: scaleX(-1);
+  //       filter: FlipH;
+  //       -ms-filter: "FlipH";
+
+		div {
+			font-weight: 200;
+			font-size: 1.7em;
+			//font-size: 109px;
+			width: 100%;
+			//margin-bottom: 15px;
+			margin-top: 15px;
+		}
+
+		span {
+			font-weight: 300;
+			//font-size: 26px;
+			margin-top: 100px;
+			opacity: 0.85;
+			width: 100%;
+			
+		}
+
+		canvas {
+			.transition(all .4s ease); 
+		}
+		//background-color: blue;
+	}
+
+	
+
+
+}
+
+
+
+
+#countdown-container {
+	max-width: 1200px;
+	margin: 0px auto;
+	//background-color: red;
+	//height: 300px;
+
+	&>div>div {
+		width: 20%;
+		margin: 10px 2.5%;
+		// -moz-transform: scaleX(-1);
+  //       -o-transform: scaleX(-1);
+  //       -webkit-transform: scaleX(-1);
+  //       transform: scaleX(-1);
+  //       filter: FlipH;
+  //       -ms-filter: "FlipH";
+	}
+}
+

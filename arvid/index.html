@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>csnvaka</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="jquery.classycountdown.min.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:200italic,200,300,300italic,400,400italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<!--
+	<div id="clock" class="grid">
+		<div class="row">
+			<div class="c3 day">
+				<div class="time-container">
+					<div class="time">28</div>
+					<div class="title">dagar</div>
+				</div>
+			</div>
+			
+			<div class="c3 hour">
+				<div class="time-container">
+					<div class="time">16</div>
+					<div class="title">timmar</div>
+				</div>
+			</div>
+			
+			<div class="c3 min">
+				<div class="time-container">
+					<div class="time">39</div>
+					<div class="title">minuter</div>
+				</div>
+			</div>
+			
+			<div class="c3 sec end">
+				<div class="time-container">
+					<div class="time">54</div>
+					<div class="title">sekunder</div>
+				</div>
+			</div>
+		</div>
+	</div>-->
+
+	<div id="countdown-container">
+		
+	</div>
+		
+
+	<div id="hero"></div>	
+
+</body>
+<script src="js/jquery-min.js" type="text/javascript"></script>
+<script src="js/main.js" type="text/javascript"></script>
+<script src="js/jquery.knob.js"></script>
+<script src="js/jquery.throttle.js"></script>
+<script src="js/jquery.classycountdown.js"></script>
+<script type="text/javascript">
+
+	var backColor = 'rgba(255, 255, 255, 0.1)';
+	var frontColor = 'rgba(255, 255, 255, 1)';
+	var thickNess = 0.035;
+	var lineEnd = "butt" //"round"
+
+	$('#countdown-container').ClassyCountdown({
+
+
+		// flat-colors, flat-colors-wide, flat-colors-very-wide, 
+		// flat-colors-black, black, black-wide, black-very-wide, 
+		// black-black, white, white-wide, 
+		// white-very-wide or white-black
+		theme: "white", 
+
+		// end time
+		end: $.now() + 120,//645600, 
+		now: $.now(),
+
+		// whether to display the days/hours/minutes/seconds labels.
+		labels: true,
+
+		// object that specifies different language phrases for says/hours/minutes/seconds as well as specific CSS styles.
+		labelsOptions: {
+			lang: {
+				days: 'dagar',
+				hours: 'timmar',
+				minutes: 'minuter',
+				seconds: 'sekunder'
+			},
+			style: 'font-size: 0.45em;'
+		},
+
+		// custom style for the countdown
+		style: {
+		  element: '',
+		  labels: false,
+		  text: 0.5,
+		  days: {
+		    gauge: {
+		      thickness: thickNess,
+		      bgColor: backColor,
+		      fgColor: frontColor,
+		      lineCap: lineEnd
+		    },
+		    textCSS: ''
+		  },
+		  hours: {
+		    gauge: {
+		      thickness: thickNess,
+		      bgColor: backColor,
+		      fgColor: frontColor,
+		      lineCap: lineEnd
+		    },
+		    textCSS: ''
+		  },
+		  minutes: {
+		    gauge: {
+		      thickness: thickNess,
+		      bgColor: backColor,
+		      fgColor: frontColor,
+		      lineCap: lineEnd
+		    },
+		    textCSS: ''
+		  },
+		  seconds: {
+		    gauge: {
+		      thickness: thickNess,
+		      bgColor: backColor,
+		      fgColor: frontColor,
+		      lineCap: lineEnd
+		    },
+		    textCSS: ''
+		  }
+		},
+
+		// callback that is fired when the countdown reaches 0.
+		onEndCallback: function() {
+			alert ("slut!");
+		}
+
+
+
+	});
+
+</script>
+</html>
