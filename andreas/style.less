@@ -1,6 +1,59 @@
+@import "normalize.less";
+
 .container
 {
-	// width: 500px;
-	// height: 500px;
-	// background-color: blue;
+	width: 1080px;
+	height: 200px;
+	position: absolute;
+	bottom: 0;
+	margin-left: 160px;
+}
+
+canvas
+{
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	height: 100vh;
+	width: 100%;
+	
+	background: #5A9CAA;
+	// .transition(all .4s ease); 
+	//.bg-gradient 
+
+}
+
+#hero {
+	display: block;
+	position: absolute;
+	top: 0;
+	z-index: -1;
+	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	height: 100vh;
+	width: 100%;
+	.bg-gradient;
+	
+	//opacity: 0;
+	//.transition(all 2s ease-in-out); 
+}
+
+
+.bg-gradient {
+
+	background: -moz-linear-gradient(-30deg,  #185f82 0%, #97d5d0 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#185f82), color-stop(100%,#97d5d0)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-30deg,  #185f82 0%,#97d5d0 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-30deg,  #185f82 0%,#97d5d0 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-30deg,  #185f82 0%,#97d5d0 100%); /* IE10+ */
+	background: linear-gradient(120deg,  #185f82 0%,#97d5d0 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#185f82', endColorstr='#97d5d0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
