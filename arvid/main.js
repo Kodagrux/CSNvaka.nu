@@ -21,5 +21,28 @@ $(document).ready(function () {
 		});
 	});
 
+	if (parseInt($("#day-value").html()) == 0) {
+		console.log("Zero Days!");
+		$(".ClassyCountdown-days").hide();
+		$("#countdown-container>div>div").css({
+			width: '25%',
+			height: '300px',
+			margin: '10px 4.14%'
+		});
+
+			if (parseInt($("#hour-value").html()) == 0) {
+			console.log("Zero Hours!");
+			$(".ClassyCountdown-hours").hide();
+			$("#countdown-container>div>div").css({
+				width: '25%',
+				height: '300px',
+				margin: '10px 4.14%'
+			});
+		}
+	}
+
+	//console.log(parseInt($("#hour-value").html()));
+
+
 });
 

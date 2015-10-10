@@ -84,26 +84,26 @@
             element.append('<div class="ClassyCountdown-wrapper">' +
                     '<div class="ClassyCountdown-days">' +
                         '<input type="text" />' +
-                        '<span class="ClassyCountdown-value"><div></div><span></span></span>' +
+                        '<span class="ClassyCountdown-value"><div id="day-value"></div><span></span></span>' +
                     '</div>' +
                     '<div class="ClassyCountdown-hours">' +
                         '<input type="text" />' +
-                        '<span class="ClassyCountdown-value"><div></div><span></span></span>' +
+                        '<span class="ClassyCountdown-value"><div id="hour-value"></div><span></span></span>' +
                     '</div>' +
                     '<div class="ClassyCountdown-minutes">' +
                         '<input type="text" />' +
-                        '<span class="ClassyCountdown-value"><div></div><span></span></span>' +
+                        '<span class="ClassyCountdown-value"><div id="minute-value"></div><span></span></span>' +
                     '</div>' +
                     '<div class="ClassyCountdown-seconds">' +
                         '<input type="text" />' +
-                        '<span class="ClassyCountdown-value"><div></div><span></span></span>' +
+                        '<span class="ClassyCountdown-value"><div id="second-value"></div><span></span></span>' +
                     '</div>' +
                 '</div>');
             element.find('.ClassyCountdown-days input').knob($.extend({
                 width: '100%',
                 displayInput: false,
                 readOnly: true,
-                max: 365
+                max: 32
             }, settings.style.days.gauge));
             element.find('.ClassyCountdown-hours input').knob($.extend({
                 width: '100%',
@@ -162,10 +162,10 @@
                 MinutesLeft = 0;
                 SecondsLeft = 0;
             }
-            element.find('.ClassyCountdown-days input').val(365 - DaysLeft).trigger('change');
-            element.find('.ClassyCountdown-hours input').val(24 - HoursLeft).trigger('change');
-            element.find('.ClassyCountdown-minutes input').val(60 - MinutesLeft).trigger('change');
-            element.find('.ClassyCountdown-seconds input').val(60 - SecondsLeft).trigger('change');
+            element.find('.ClassyCountdown-days input').val(DaysLeft).trigger('change');
+            element.find('.ClassyCountdown-hours input').val(HoursLeft).trigger('change');
+            element.find('.ClassyCountdown-minutes input').val(MinutesLeft).trigger('change');
+            element.find('.ClassyCountdown-seconds input').val(SecondsLeft).trigger('change');
             element.find('.ClassyCountdown-days .ClassyCountdown-value > div').html(DaysLeft);
             element.find('.ClassyCountdown-hours .ClassyCountdown-value > div').html(HoursLeft);
             element.find('.ClassyCountdown-minutes .ClassyCountdown-value > div').html(MinutesLeft);
@@ -204,7 +204,7 @@
         
         function getPreset(theme) {
             switch (theme) {
-                case 'flat-colors':
+                /*case 'flat-colors':
                     return {
                         labels: true,
                         style: {
@@ -530,7 +530,7 @@
                                 textCSS: 'font-family:\'Open Sans\';font-weight:300;color:#34495e;'
                             }
                         }
-                    };
+                    };*/
                 case 'white':
                     return {
                         labels: true,
@@ -571,7 +571,7 @@
                             }
                         }
                     };
-                case 'white-wide':
+                /*case 'white-wide':
                     return {
                         labels: true,
                         style: {
@@ -695,6 +695,7 @@
                             }
                         }
                     };
+                    */
             }
         }
     };
