@@ -27,7 +27,7 @@ $('#countdown-container').ClassyCountdown({
 			minutes: 'minuter',
 			seconds: 'sekunder'
 		},
-		style: 'font-size: 0.45em;'
+		style: ''
 	},
 
 	style: {
