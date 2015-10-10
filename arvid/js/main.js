@@ -106,9 +106,10 @@ $(document).ready(function () {
 	});
 
 	// Hide unused balls
-	if (parseInt($("#day-value").html()) == 0) {
+	/*if (parseInt($("#day-value").html()) == 0) {
 		console.log("Zero Days!");
 		$(".ClassyCountdown-days").hide();
+		$("#countdown-container>div>div").addClass('no-days');
 		$("#countdown-container>div>div").css({
 			width: '25%',
 			height: '300px',
@@ -118,19 +119,24 @@ $(document).ready(function () {
 		if (parseInt($("#hour-value").html()) == 0) {
 			console.log("Zero Hours!");
 			$(".ClassyCountdown-hours").hide();
+			$("#countdown-container>div>div").addClass('no-hours');
 			$("#countdown-container>div>div").css({
 				width: '27%',
 				height: '324px',
 				margin: '10px 4.14%'
 			});
 
+			
 			$(".ClassyCountdown-minutes").css({
 				marginLeft: '19%'
 			});
 
+			$(".ClassyCountdown-minutes").addClass('no-hours-minutes');
+
 			if (parseInt($("#minute-value").html()) == 0) {
 				console.log("Zero Minutes!");
 				$(".ClassyCountdown-minutes").hide();
+				$("#countdown-container>div>div").addClass('no-minutes');
 				$("#countdown-container>div>div").css({
 					width: '30%',
 					height: '360px',
@@ -139,7 +145,7 @@ $(document).ready(function () {
 
 			}
 		}
-	}
+	}*/
 
 });
 
