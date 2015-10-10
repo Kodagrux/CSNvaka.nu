@@ -64,7 +64,7 @@
 	var backColor = 'rgba(255, 255, 255, 0.1)';
 	var frontColor = 'rgba(255, 255, 255, 1)';
 	var thickNess = 0.035;
-	var lineEnd = "butt" //"round"
+	var lineEnd = "round"; //"butt"
 
 	$('#countdown-container').ClassyCountdown({
 
@@ -76,7 +76,7 @@
 		theme: "white", 
 
 		// end time
-		end: $.now() + 3609,//Math.floor((fezt.getTime() - $.now())/1000),//645600, 
+		end: $.now() + Math.floor((fezt.getTime() - $.now())/1000),//645600, 
 		now: $.now(),
 
 		// whether to display the days/hours/minutes/seconds labels.
@@ -138,7 +138,7 @@
 
 		// callback that is fired when the countdown reaches 0.
 		onEndCallback: function() {
-			alert ("slut!");
+			//alert ("slut!");
 		}
 
 

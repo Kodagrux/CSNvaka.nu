@@ -30,14 +30,29 @@ $(document).ready(function () {
 			margin: '10px 4.14%'
 		});
 
-			if (parseInt($("#hour-value").html()) == 0) {
+		if (parseInt($("#hour-value").html()) == 0) {
 			console.log("Zero Hours!");
 			$(".ClassyCountdown-hours").hide();
 			$("#countdown-container>div>div").css({
-				width: '25%',
-				height: '300px',
+				width: '27%',
+				height: '324px',
 				margin: '10px 4.14%'
 			});
+
+			$(".ClassyCountdown-minutes").css({
+				marginLeft: '19%'
+			});
+
+			if (parseInt($("#minute-value").html()) == 0) {
+				console.log("Zero Minutes!");
+				$(".ClassyCountdown-minutes").hide();
+				$("#countdown-container>div>div").css({
+					width: '30%',
+					height: '360px',
+					margin: '10px 35.5%'
+				});
+
+			}
 		}
 	}
 
