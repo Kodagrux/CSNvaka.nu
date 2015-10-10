@@ -9,7 +9,12 @@
 
 
 
-/* http://patorjk.com/software/taag/#p=display&f=Colos1sal&t=ABOUT */
+/* http://patorjk.com/software/taag/#p=display&f=Colossal&t=ABOUT */
+
+
+
+
+
 
 @import "normalize.less";
 @import "abstract_classes.less";
@@ -44,6 +49,41 @@ body {
 
 }
 
+
+.fade-in {
+	opacity: 1 !important;
+	
+}
+
+
+.float_left {
+	float: left;
+}
+
+
+
+
+
+
+
+
+
+
+/*
+
+888    888 8888888888 8888888b.   .d88888b.  
+888    888 888        888   Y88b d88P" "Y88b 
+888    888 888        888    888 888     888 
+8888888888 8888888    888   d88P 888     888 
+888    888 888        8888888P"  888     888 
+888    888 888        888 T88b   888     888 
+888    888 888        888  T88b  Y88b. .d88P 
+888    888 8888888888 888   T88b  "Y88888P" 
+
+*/
+
+
+
 #hero {
 	display: block;
 	position: absolute;
@@ -69,10 +109,7 @@ body {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#185f82', endColorstr='#97d5d0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
-.fade-in {
-	opacity: 1 !important;
-	
-}
+
 
 
 
@@ -107,7 +144,7 @@ Y88b  d88P Y88b. .d88P Y88b. .d88P 888   Y8888     888     888  .d88P Y88b. .d88
 	color: white;
 	font-family: "Titillium Web";
 	.text-shadow(0px 1px 2px rgba(0,0,0,0.27));
-	padding-top: 33vh;
+	padding-top: 32vh;
 
 	.ClassyCountdown-value {
 		div {
@@ -176,7 +213,50 @@ Y88b  d88P Y88b. .d88P 888           888     8888P   Y8888 888  T88b    888     
  "Y8888P"   "Y88888P"  888           888     888P     Y888 888   T88b 8888888     888     8888888888 
                                                                                                                                                                              
 */
+#copywrite {
+	//position: absolute;
+	//bottom: 0;
+	width: 100%;
+	margin: auto;
+	text-align: center;
+	margin-top: 7%;
+	opacity: 0.7;
+	.transition(all 0.1s ease-in-out);
 
+
+	#share {
+        text-align: center;
+        margin: 0 auto 0 auto;
+        height: 32px;
+        width: 290px;
+
+        #google, #facebook, #twitter {
+        	margin: 0px 5px;
+        }
+
+        #facebook {
+        	margin-top: -7px;
+        }
+    }
+	p {
+		
+		font-size: 0.85em;
+		margin-top: 0.7%;
+		color: white;
+		font-family: 'Droid Serif', serif;
+		font-weight: 400;
+
+		a, a:visited, a:hover {
+			color: white;
+		}
+
+		
+	}
+
+	&:hover {
+		opacity: 1;
+	}
+}
 
 
 
