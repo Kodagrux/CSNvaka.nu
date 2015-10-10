@@ -82,7 +82,7 @@
         var leftValue = 0;
         var interval = (1000); //20fps
         var before = new Date();
-
+/*
         setInterval(function()
         {
             now = new Date();
@@ -103,8 +103,8 @@
             before = now;    
 
         }, interval);
-
-        //setInterval(doTick, 1000);
+*/
+        setInterval(doTick, 1000);
         doResponsive();
         
         function prepare() {
