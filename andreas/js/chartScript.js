@@ -2,8 +2,8 @@
 $(document).ready(function () 
 {	
 	var data = {
-		labels: ["22.35", "22.40", "22.45", "22.50", "22.55", "23.00", "23.05", "23.10", "23.15", "23.20", "23.25", "23.30", "23.35", "23.40", "23.45", "23.50", "23.55", "00.00"],
-		// labels: ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+		//labels: ["22.35", "22.40", "22.45", "22.50", "22.55", "23.00", "23.05", "23.10", "23.15", "23.20", "23.25", "23.30", "23.35", "23.40", "23.45", "23.50", "23.55", "00.00"],
+		 labels: ["", "", "", "", "", "", "", "", "", "", "", "", ""],
 		datasets: [
 			{
 				label: "Time",
@@ -18,25 +18,26 @@ $(document).ready(function ()
 
 	var ctx = document.getElementById("myChart").getContext("2d");
 	
-	var myNewChart = new Chart(ctx).Bar(data, {
-	    barShowStroke: true,
+	var myNewChart = new Chart(ctx).Line(data, {
+	    barShowStroke: false,
 	    responsive: true,
 	    maintainAspectRatio: true,
+	    scaleBeginAtZero : true,
 	    
 	    scaleShowLabels : false,					// hides y-axis labels
-	    scaleShowGridLines: false,					// Hides grid-lines
-	    barStrokeWidth: 1,							// pixel width of bar strokes
-	    barValueSpacing: 10,						// space between x-value sets
+	    scaleShowGridLines: false,					// Hides grid-lines						// pixel width of bar strokes
+	    barValueSpacing: 5,						// space between x-value sets
 	    scaleLineColor: "transparent",				// color of x / y -axises
-	    scaleFontColor: "rgba(255,255,255,0",		// scale font color
+	    //scaleFontColor: "rgba(255,255,255,0.2)",		// scale font color
 
 	    customToolTips: true,						// tooltips shown on hover 
 	    tooltipEvents: ["mousemove", "touchstart", "touchmove"],
-	    tooltipFillColor: "rgba(0,0,0,0.8)",
+	    tooltipFillColor: "rgba(255,255,255,0.8)",
+	    tooltipTitleFontColor: "#5A9CAA",
 	    tooltipTemplate: "<%= value %>",
 	    scaleLabel: "<%=value%>",
 	});
-
+/*
 	myNewChart.datasets[0].bars[0].fillColor  = "rgba(220,220,200,.07";
 	myNewChart.datasets[0].bars[1].fillColor  = "rgba(220,220,200,.07";
 	myNewChart.datasets[0].bars[2].fillColor  = "rgba(220,220,200,.07";
@@ -55,6 +56,6 @@ $(document).ready(function ()
 	myNewChart.datasets[0].bars[15].fillColor = "rgba(220,220,200,.4";
 	myNewChart.datasets[0].bars[16].fillColor = "rgba(220,220,200,.5";
 	myNewChart.datasets[0].bars[17].fillColor = "rgba(220,220,200,.6";
-	myNewChart.update();
+	myNewChart.update();*/
 });
 
