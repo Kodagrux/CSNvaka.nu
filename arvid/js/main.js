@@ -1,11 +1,11 @@
 
 // Count Down
 
-var fezt = new Date(2015, 9, 12, 23, 59, 59, 999);
+var fezt = new Date(2015, 10, 12, 23, 59, 59, 999);
 
 var backColor = 'rgba(255, 255, 255, 0.1)';
 var frontColor = 'rgba(255, 255, 255, 1)';
-var thickNess = 0.035;
+var thickNess = 0.045;
 var lineEnd = "round"; //"butt"
 
 $('#countdown-container').ClassyCountdown({
