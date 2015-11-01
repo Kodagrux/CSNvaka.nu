@@ -37,6 +37,9 @@ class visitorController extends Controller
 	 */
 	public function getVisitors()
 	{
+		$dn = date('Y-m-d H:i:s', time()-20);
+		$v2 = Visitor::where('updated_at', '<', $dn)->delete();
+		
 		$count = Visitor::all()->count();
 		return $count;
 	}
