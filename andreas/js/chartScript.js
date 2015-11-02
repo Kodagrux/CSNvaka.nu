@@ -17,7 +17,30 @@ $(document).ready(function ()
 	};
 
 	var ctx = document.getElementById("myChart").getContext("2d");
-	
+
+
+	var myNewChart = new Chart(ctx).Bar(data, {
+	    barShowStroke: false,
+	    responsive: true,
+	    maintainAspectRatio: true,
+	    scaleBeginAtZero : true,
+	    
+	    scaleShowLabels : false,					// hides y-axis labels
+	    scaleShowGridLines: false,					// Hides grid-lines						// pixel width of bar strokes
+	    barValueSpacing: 5,						// space between x-value sets
+	    scaleLineColor: "transparent",				// color of x / y -axises
+	    //scaleFontColor: "rgba(255,255,255,0.2)",		// scale font color
+
+	    customToolTips: true,						// tooltips shown on hover 
+	    tooltipEvents: ["mousemove", "touchstart", "touchmove"],
+	    tooltipFillColor: "rgba(255,255,255,0.8)",
+	    tooltipTitleFontColor: "#5A9CAA",
+	    tooltipTemplate: "<%= value %>",
+	    scaleLabel: "<%=value%>",
+	});
+
+
+/*	
 	var myNewChart = new Chart(ctx).Line(data, {
 	    barShowStroke: false,
 	    responsive: true,
@@ -37,7 +60,7 @@ $(document).ready(function ()
 	    tooltipTemplate: "<%= value %>",
 	    scaleLabel: "<%=value%>",
 	});
-/*
+
 	myNewChart.datasets[0].bars[0].fillColor  = "rgba(220,220,200,.07";
 	myNewChart.datasets[0].bars[1].fillColor  = "rgba(220,220,200,.07";
 	myNewChart.datasets[0].bars[2].fillColor  = "rgba(220,220,200,.07";
