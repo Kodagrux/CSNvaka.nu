@@ -255,12 +255,12 @@ $(document).ready(function () {
 
     var visitorsOnline = 1;
     var userID;
-    $.post("localhost:8888/api/visitor/setVisitor", function(user_id){
+    $.post("130.239.212.138:8888/api/visitor/setVisitor", function(user_id){
        // Uonline.html(getNumOfOnline1); //skriva om domen
         userID = user_id;
     });
 
-    $.post(("localhost:8888/api/visitor/updateVisitor/" + userID), function(visitors_online){
+    $.post(("130.239.212.138:8888/api/visitor/updateVisitor/" + userID), function(visitors_online){
         visitorsOnline = visitors_online;
         myNewChart.removeData();
         myNewChart.addData([visitors_online], "");
@@ -270,7 +270,7 @@ $(document).ready(function () {
     window.setInterval(function(){
         
 
-        $.post("localhost:8888/api/visitor/updateVisitor/" + userID, function(visitors_online){
+        $.post("130.239.212.138:8888/api/visitor/updateVisitor/" + userID, function(visitors_online){
             visitorsOnline = visitors_online;
             myNewChart.removeData();
             myNewChart.addData([visitors_online], "");
