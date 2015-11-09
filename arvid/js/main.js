@@ -90,7 +90,7 @@ $(document).ready(function () {
 	$("#hero").addClass("fade-in");
 
 	//"Scroll to"-function
-	$(function(){
+	/*$(function(){
 			$('a[href*=#]').click(function() {
 				if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
 	   		&& location.hostname == this.hostname) {
@@ -103,7 +103,7 @@ $(document).ready(function () {
 	       		}
 	   		}	
 		});
-	});
+	});*/
 
 	// Hide unused balls
 	/*if (parseInt($("#day-value").html()) == 0) {
@@ -147,6 +147,8 @@ $(document).ready(function () {
 		}
 	}*/
 
+	var chart_data = [(Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100)];
+
 	var data = {
 		//labels: ["22.35", "22.40", "22.45", "22.50", "22.55", "23.00", "23.05", "23.10", "23.15", "23.20", "23.25", "23.30", "23.35", "23.40", "23.45", "23.50", "23.55", "00.00"],
 		 labels: ["", "", "", "", "", "", "", "", "", "", "", "", ""],
@@ -155,36 +157,62 @@ $(document).ready(function () {
 				label: "Time",
 				fillColor: "rgba(220,220,220,0.2)",
 				strokeColor: "rgba(255,255,255,0)",
-				highlightFill: "rgba(220,220,220,0.7)",
+				highlightFill: "rgba(220,220,220,0.4)",
 				highlightStroke: "rgba(220,220,220,0.4)",
-				data: [(Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), ]
+				data: chart_data
 			}
 		]
 	};
 
 	var ctx = document.getElementById("myChart").getContext("2d");
+	var myNewChart = 0;
+	//setTimeout(function() {
+		myNewChart = new Chart(ctx).Bar(data, {
+		    barShowStroke: false,
+		    responsive: true,
+		    maintainAspectRatio: true,
+		    scaleBeginAtZero : true,
+		    
+		    scaleShowLabels : false,					// hides y-axis labels
+		    scaleShowGridLines: false,					// Hides grid-lines						// pixel width of bar strokes
+		    barValueSpacing: 5,						// space between x-value sets
+		    scaleLineColor: "transparent",				// color of x / y -axises
+		    //scaleFontColor: "rgba(255,255,255,0.2)",		// scale font color
 
+		    //customToolTips: true,						// tooltips shown on hover 
+		    tooltipEvents: ["mousemove", "touchstart", "touchmove"],
+		    tooltipFillColor: "rgba(255,255,255,0.6)",
+		    tooltipFontColor: "#5A9CAA",
+		    tooltipTemplate: "<%= value %> besökare",
+		    scaleLabel: "<%=value%>",
+		});
+	//}, 1500);
 
-	var myNewChart = new Chart(ctx).Bar(data, {
-	    barShowStroke: false,
-	    responsive: true,
-	    maintainAspectRatio: true,
-	    scaleBeginAtZero : true,
-	    
-	    scaleShowLabels : false,					// hides y-axis labels
-	    scaleShowGridLines: false,					// Hides grid-lines						// pixel width of bar strokes
-	    barValueSpacing: 5,						// space between x-value sets
-	    scaleLineColor: "transparent",				// color of x / y -axises
-	    //scaleFontColor: "rgba(255,255,255,0.2)",		// scale font color
+	chart_data2 = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
 
-	    customToolTips: true,						// tooltips shown on hover 
-	    tooltipEvents: ["mousemove", "touchstart", "touchmove"],
-	    tooltipFillColor: "rgba(255,255,255,0.8)",
-	    tooltipTitleFontColor: "#5A9CAA",
-	    tooltipTemplate: "<%= value %>",
-	    scaleLabel: "<%=value%>",
-	});
+	var data = {
+		//labels: ["22.35", "22.40", "22.45", "22.50", "22.55", "23.00", "23.05", "23.10", "23.15", "23.20", "23.25", "23.30", "23.35", "23.40", "23.45", "23.50", "23.55", "00.00"],
+		 labels: ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+		datasets: [
+			{
+				label: "Time",
+				fillColor: "rgba(220,220,220,0.2)",
+				strokeColor: "rgba(255,255,255,0)",
+				highlightFill: "rgba(220,220,220,0.4)",
+				highlightStroke: "rgba(220,220,220,0.4)",
+				data: chart_data
+			}
+		]
+	};
 
+	setInterval(function() {
+		console.log(myNewChart);
+		//myNewChart.datasets[0].bars[2].value = (Math.random() * 100);// = chart_data2;
+		myNewChart.removeData();
+		myNewChart.addData([60], "");
+		myNewChart.update();
+		//alert("herro!!!");
+	}, 1500);
 
 /*	
 	var myNewChart = new Chart(ctx).Line(data, {
