@@ -147,10 +147,9 @@ $(document).ready(function () {
 		}
 	}*/
 
-	var chart_data = [(Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100), (Math.random() * 100)];
+	var chart_data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 	var data = {
-		//labels: ["22.35", "22.40", "22.45", "22.50", "22.55", "23.00", "23.05", "23.10", "23.15", "23.20", "23.25", "23.30", "23.35", "23.40", "23.45", "23.50", "23.55", "00.00"],
 		 labels: ["", "", "", "", "", "", "", "", "", "", "", "", ""],
 		datasets: [
 			{
@@ -165,54 +164,37 @@ $(document).ready(function () {
 	};
 
 	var ctx = document.getElementById("myChart").getContext("2d");
-	var myNewChart = 0;
+	// myNewChart = 0;
 	//setTimeout(function() {
-		myNewChart = new Chart(ctx).Bar(data, {
-		    barShowStroke: false,
-		    responsive: true,
-		    maintainAspectRatio: true,
-		    scaleBeginAtZero : true,
-		    
-		    scaleShowLabels : false,					// hides y-axis labels
-		    scaleShowGridLines: false,					// Hides grid-lines						// pixel width of bar strokes
-		    barValueSpacing: 5,						// space between x-value sets
-		    scaleLineColor: "transparent",				// color of x / y -axises
-		    //scaleFontColor: "rgba(255,255,255,0.2)",		// scale font color
+	var	myNewChart = new Chart(ctx).Bar(data, {
+	    barShowStroke: false,
+	    responsive: true,
+	    maintainAspectRatio: true,
+	    scaleBeginAtZero : true,
+	    
+	    scaleShowLabels : false,					// hides y-axis labels
+	    scaleShowGridLines: false,					// Hides grid-lines						// pixel width of bar strokes
+	    barValueSpacing: 5,						// space between x-value sets
+	    scaleLineColor: "transparent",				// color of x / y -axises
+	    //scaleFontColor: "rgba(255,255,255,0.2)",		// scale font color
 
-		    //customToolTips: true,						// tooltips shown on hover 
-		    tooltipEvents: ["mousemove", "touchstart", "touchmove"],
-		    tooltipFillColor: "rgba(255,255,255,0.6)",
-		    tooltipFontColor: "#5A9CAA",
-		    tooltipTemplate: "<%= value %> besökare",
-		    scaleLabel: "<%=value%>",
-		});
+	    //customToolTips: true,						// tooltips shown on hover 
+	    tooltipEvents: ["mousemove", "touchstart", "touchmove"],
+	    tooltipFillColor: "rgba(255,255,255,0.6)",
+	    tooltipFontColor: "#5A9CAA",
+	    tooltipTemplate: "<%= value %> besökare",
+	    scaleLabel: "<%=value%>",
+	});
 	//}, 1500);
 
-	chart_data2 = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
-
-	var data = {
-		//labels: ["22.35", "22.40", "22.45", "22.50", "22.55", "23.00", "23.05", "23.10", "23.15", "23.20", "23.25", "23.30", "23.35", "23.40", "23.45", "23.50", "23.55", "00.00"],
-		 labels: ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-		datasets: [
-			{
-				label: "Time",
-				fillColor: "rgba(220,220,220,0.2)",
-				strokeColor: "rgba(255,255,255,0)",
-				highlightFill: "rgba(220,220,220,0.4)",
-				highlightStroke: "rgba(220,220,220,0.4)",
-				data: chart_data
-			}
-		]
-	};
-
-	setInterval(function() {
+	/*setInterval(function() {
 		console.log(myNewChart);
-		//myNewChart.datasets[0].bars[2].value = (Math.random() * 100);// = chart_data2;
+		//myNewChart.datasets[0].bars[2].value = 0;// = chart_data2;
 		myNewChart.removeData();
 		myNewChart.addData([60], "");
 		myNewChart.update();
 		//alert("herro!!!");
-	}, 1500);
+	}, 1500);*/
 
 /*	
 	var myNewChart = new Chart(ctx).Line(data, {
@@ -254,6 +236,63 @@ $(document).ready(function () {
 	myNewChart.datasets[0].bars[16].fillColor = "rgba(220,220,200,.5";
 	myNewChart.datasets[0].bars[17].fillColor = "rgba(220,220,200,.6";
 	myNewChart.update();*/
+
+
+
+
+
+
+
+
+
+
+
+
+ 	var numOfOnline = 0;
+    var count = 0;
+    var offset = true;
+    var refreshTime = 5000; //Sekunder
+
+    var visitorsOnline = 1;
+    var userID;
+    $.post("localhost:8888/api/visitor/setVisitor", function(user_id){
+       // Uonline.html(getNumOfOnline1); //skriva om domen
+        userID = user_id;
+    });
+
+    $.post(("localhost:8888/api/visitor/updateVisitor/" + userID), function(visitors_online){
+        visitorsOnline = visitors_online;
+        myNewChart.removeData();
+        myNewChart.addData([visitors_online], "");
+        myNewChart.update();
+    });
+                    
+    window.setInterval(function(){
+        
+
+        $.post("localhost:8888/api/visitor/updateVisitor/" + userID, function(visitors_online){
+            visitorsOnline = visitors_online;
+            myNewChart.removeData();
+            myNewChart.addData([visitors_online], "");
+            myNewChart.update();
+        });
+
+    }, refreshTime);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 });
 
