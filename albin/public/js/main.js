@@ -254,23 +254,27 @@ $(document).ready(function () {
     var refreshTime = 5000; //Sekunder
 
     var visitorsOnline = 1;
-    var userID;
-    $.post("localhost:8888/api/visitor/setVisitor", function(user_id){
+    var userID = 0;
+    $.get("../api/visitor/setVisitor", function(user_id){
        // Uonline.html(getNumOfOnline1); //skriva om domen
+       	console.log(user_id);
         userID = user_id;
+
+        $.get(("../api/visitor/updateVisitor/" + userID), function(visitors_online){
+	        visitorsOnline = visitors_online;
+	        myNewChart.removeData();
+	        myNewChart.addData([visitors_online], "");
+	        myNewChart.update();
+	    });
+        
     });
 
-    $.post(("localhost:8888/api/visitor/updateVisitor/" + userID), function(visitors_online){
-        visitorsOnline = visitors_online;
-        myNewChart.removeData();
-        myNewChart.addData([visitors_online], "");
-        myNewChart.update();
-    });
+    
                     
     window.setInterval(function(){
         
 
-        $.post("localhost:8888/api/visitor/updateVisitor/" + userID, function(visitors_online){
+        $.get("../api/visitor/updateVisitor/" + userID, function(visitors_online){
             visitorsOnline = visitors_online;
             myNewChart.removeData();
             myNewChart.addData([visitors_online], "");
