@@ -187,14 +187,14 @@ $(document).ready(function () {
 	});
 	//}, 1500);
 
-	/*setInterval(function() {
+	setInterval(function() {
 		console.log(myNewChart);
 		//myNewChart.datasets[0].bars[2].value = 0;// = chart_data2;
 		myNewChart.removeData();
 		myNewChart.addData([60], "");
 		myNewChart.update();
 		//alert("herro!!!");
-	}, 1500);*/
+	}, 1500);
 
 /*	
 	var myNewChart = new Chart(ctx).Line(data, {
@@ -247,7 +247,7 @@ $(document).ready(function () {
 
 
 
-
+	/*
  	var numOfOnline = 0;
     var count = 0;
     var offset = true;
@@ -278,7 +278,7 @@ $(document).ready(function () {
         });
 
     }, refreshTime);
-
+	*/
 
 
 
