@@ -19,7 +19,9 @@ class university extends Controller
 	{
 		// 
 		$date = PayDate::where('date', '>', date('Y-m-d'))->orderBy('date', 'asc')->first();
-		return strtotime($date->date);
+
+		$response = new Response($date->date);
+		return $response;
 	}
 
 	/**
@@ -38,7 +40,9 @@ class university extends Controller
 	public function previousDate()
 	{
 		$date = PayDate::where('date', '<', date('Y-m-d'))->orderBy('date', 'desc')->first();
-		return strtotime($date->date);
+		
+		$response = new Response($date->date);
+		return $response;
 	}
 
 	/**
@@ -68,7 +72,8 @@ class university extends Controller
 			return 'no no';
 		}
 
-		return 'done';
+		$response = new Response('done');
+		return $response;
 	}
 
 	/**

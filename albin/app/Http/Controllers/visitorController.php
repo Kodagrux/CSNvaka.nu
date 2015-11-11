@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 // use App\User;
 use App\Visitor;
 use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 
 
 /**
@@ -16,17 +17,38 @@ class visitorController extends Controller
 	 * [nextDate description]
 	 * @return [type] [description]
 	 */
-	public function setVisitor()
+	public function setVisitor(Request $request)
 	{
-		// 
-		$uid = uniqid('_csnvaka', true);
 
+		// Fetch cookie
+		$cvuid_val = $request->cookie('CVUID');
+
+		// Check if cookie exists
+		if (isset($cvuid_val)) {
+			$u = Visitor::where('session', '=', $cvuid_val)->first();
+
+			// Check if user is alive
+			if ($u != Null && $u->count() > 0) {
+				$uid = $cvuid_val;
+				$u->touch(); //touch user to keep alive
+			}else{
+			// Create new user cause seems dead
+				$uid = uniqid('_csnvaka', true);
+				$v = new Visitor();
+				$v->session = $uid;
+				$v->save();
+			}
+		}else{
+			// Create new user, cause totaly new :)
+			$uid = uniqid('_csnvaka', true);
+			$v = new Visitor();
+			$v->session = $uid;
+			$v->save();
+		}
+
+		// Create response with cookie
 		$response = new Response($uid);
 		$response->withCookie(cookie('CVUID', $uid, 720));
-
-		$v = new Visitor();
-		$v->session = $uid;
-		$v->save();
 
 		return $response;
 	}
@@ -41,7 +63,9 @@ class visitorController extends Controller
 		$v2 = Visitor::where('updated_at', '<', $dn)->delete();
 		
 		$count = Visitor::all()->count();
-		return $count;
+
+		$response = new Response($count);
+		return $response;
 	}
 
 	/**
@@ -60,6 +84,7 @@ class visitorController extends Controller
 
 		$count = Visitor::all()->count();
 		
-		return $count;
+		$response = new Response($count);
+		return $response;
 	}
 }
