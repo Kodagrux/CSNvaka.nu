@@ -13,7 +13,7 @@
 
 // Frontpage
 $app->get('/', function(){
-	return 'csnvaka.se';
+	return view('home');
 });
 
 /**

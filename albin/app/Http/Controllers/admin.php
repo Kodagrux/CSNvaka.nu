@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\PayDate;
+
 // use App\User;
 
 class admin extends Controller
@@ -13,7 +15,10 @@ class admin extends Controller
 	 */
 	public function controlPanel()
 	{
-		return 'admin control panel';
+		// return 'admin control panel';
+
+		
+		return view('admin-login');
 	}
 
 	/**
