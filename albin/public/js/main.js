@@ -1,84 +1,94 @@
+var nextPayDate = 0;
+
 
 // Count Down
+$.get(("../api/university/nextDate"), function(nextDate){
+    	var datez = new Date(2015, 11, 12, 23, 59, 59);
+    	nextPayDate = nextDate*1000;
+        //console.log(nextPayDate);
+        //console.log(datez.getTime());
+        //console.log($.now());
 
-var fezt = new Date(2015, 10, 12, 23, 59, 59, 999);
+       
+    
+	var fezt = new Date(2015, 11, 12, 23, 59, 59);
 
-var backColor = 'rgba(255, 255, 255, 0.1)';
-var frontColor = 'rgba(255, 255, 255, 1)';
-var thickNess = 0.045;
-var lineEnd = "round"; //"butt"
+	var backColor = 'rgba(255, 255, 255, 0.1)';
+	var frontColor = 'rgba(255, 255, 255, 1)';
+	var thickNess = 0.045;
+	var lineEnd = "round"; //"butt"
 
-$('#countdown-container').ClassyCountdown({
+	$('#countdown-container').ClassyCountdown({
 
-	theme: "white", 
+		theme: "white", 
 
-	// end time
-	end: $.now() + Math.floor((fezt.getTime() - $.now())/1000),//645600, 
-	now: $.now(),
+		// end time
+		end: $.now() + Math.floor((nextPayDate - $.now())/1000),//645600, 
+		now: $.now(),
 
-	// whether to display the days/hours/minutes/seconds labels.
-	labels: true,
+		// whether to display the days/hours/minutes/seconds labels.
+		labels: true,
 
-	// object that specifies different language phrases for says/hours/minutes/seconds as well as specific CSS styles.
-	labelsOptions: {
-		lang: {
-			days: 'dagar',
-			hours: 'timmar',
-			minutes: 'minuter',
-			seconds: 'sekunder'
+		// object that specifies different language phrases for says/hours/minutes/seconds as well as specific CSS styles.
+		labelsOptions: {
+			lang: {
+				days: 'dagar',
+				hours: 'timmar',
+				minutes: 'minuter',
+				seconds: 'sekunder'
+			},
+			style: ''
 		},
-		style: ''
-	},
 
-	style: {
-	  element: '',
-	  labels: false,
-	  text: 0.5,
-	  days: {
-	    gauge: {
-	      thickness: thickNess,
-	      bgColor: backColor,
-	      fgColor: frontColor,
-	      lineCap: lineEnd
-	    },
-	    textCSS: ''
-	  },
-	  hours: {
-	    gauge: {
-	      thickness: thickNess,
-	      bgColor: backColor,
-	      fgColor: frontColor,
-	      lineCap: lineEnd
-	    },
-	    textCSS: ''
-	  },
-	  minutes: {
-	    gauge: {
-	      thickness: thickNess,
-	      bgColor: backColor,
-	      fgColor: frontColor,
-	      lineCap: lineEnd
-	    },
-	    textCSS: ''
-	  },
-	  seconds: {
-	    gauge: {
-	      thickness: thickNess,
-	      bgColor: backColor,
-	      fgColor: frontColor,
-	      lineCap: lineEnd
-	    },
-	    textCSS: ''
-	  }
-	},
+		style: {
+		  element: '',
+		  labels: false,
+		  text: 0.5,
+		  days: {
+		    gauge: {
+		      thickness: thickNess,
+		      bgColor: backColor,
+		      fgColor: frontColor,
+		      lineCap: lineEnd
+		    },
+		    textCSS: ''
+		  },
+		  hours: {
+		    gauge: {
+		      thickness: thickNess,
+		      bgColor: backColor,
+		      fgColor: frontColor,
+		      lineCap: lineEnd
+		    },
+		    textCSS: ''
+		  },
+		  minutes: {
+		    gauge: {
+		      thickness: thickNess,
+		      bgColor: backColor,
+		      fgColor: frontColor,
+		      lineCap: lineEnd
+		    },
+		    textCSS: ''
+		  },
+		  seconds: {
+		    gauge: {
+		      thickness: thickNess,
+		      bgColor: backColor,
+		      fgColor: frontColor,
+		      lineCap: lineEnd
+		    },
+		    textCSS: ''
+		  }
+		},
 
-	// callback that is fired when the countdown reaches 0.
-	onEndCallback: function() {
-		//alert ("slut!");
-	}
+		// callback that is fired when the countdown reaches 0.
+		onEndCallback: function() {
+			//alert ("slut!");
+		}
 
+	});
 });
-
 
 
 
@@ -282,6 +292,9 @@ $(document).ready(function () {
         });
 
     }, refreshTime);
+
+
+    
 
 
 
