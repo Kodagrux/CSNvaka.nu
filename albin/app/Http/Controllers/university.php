@@ -20,7 +20,7 @@ class university extends Controller
 		// 
 		$date = PayDate::where('date', '>', date('Y-m-d'))->orderBy('date', 'asc')->first();
 
-		$response = new Response($date->date);
+		$response = strtotime($date->date);
 		return $response;
 	}
 
