@@ -157,7 +157,7 @@ $(document).ready(function () {
 		}
 	}*/
 
-	var chart_data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	var chart_data = [0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 	var data = {
 		 labels: ["", "", "", "", "", "", "", "", "", "", "", "", ""],
@@ -258,20 +258,19 @@ $(document).ready(function () {
 
 
 
- 	var numOfOnline = 0;
-    var count = 0;
-    var offset = true;
+
     var refreshTime = 5000; //Sekunder
 
-    var visitorsOnline = 1;
+    var visitorsOnline = 0;
     var userID = 0;
     $.get("../api/visitor/setVisitor", function(user_id){
        // Uonline.html(getNumOfOnline1); //skriva om domen
-       	console.log(user_id);
+       	//console.log(user_id);
         userID = user_id;
 
         $.get(("../api/visitor/updateVisitor/" + userID), function(visitors_online){
 	        visitorsOnline = visitors_online;
+	        //console.log(visitors_online);
 	        myNewChart.removeData();
 	        myNewChart.addData([visitors_online], "");
 	        myNewChart.update();
@@ -283,12 +282,18 @@ $(document).ready(function () {
                     
     window.setInterval(function(){
         
-
         $.get("../api/visitor/updateVisitor/" + userID, function(visitors_online){
+        	//console.log("old: " + visitorsOnline);
+        	//console.log("new: " + visitors_online);
+        	if (visitors_online != visitorsOnline) {
+        		//console.log("diffar! " + visitors_online);
+        		myNewChart.removeData();
+	            myNewChart.addData([visitors_online], "");
+	            myNewChart.update();
+        	}
+
             visitorsOnline = visitors_online;
-            myNewChart.removeData();
-            myNewChart.addData([visitors_online], "");
-            myNewChart.update();
+            
         });
 
     }, refreshTime);
