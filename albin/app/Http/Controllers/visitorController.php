@@ -63,9 +63,7 @@ class visitorController extends Controller
 		$v2 = Visitor::where('updated_at', '<', $dn)->delete();
 		
 		$count = Visitor::all()->count();
-
-		$response = new Response($count);
-		return $response;
+		return $count;
 	}
 
 	/**
@@ -75,16 +73,20 @@ class visitorController extends Controller
 	 */
 	public function updateVisitor($cvuid)
 	{
+
+		// TODO
+		// 
+		// Fixa bättre kakhantering. Just nu lagras id i klartext i javascriptvariabel.
+		// Hämta istället den krypterade kakan som innehåller user id. 
+		// 
 		// 
 		$v = Visitor::where('session', $cvuid)->first();
 		$v->touch();
 
-		$dn = date('Y-m-d H:i:s', time()-20);
+		$dn = date('Y-m-d H:i:s', time()-10);
 		$v2 = Visitor::where('updated_at', '<', $dn)->delete();
 
 		$count = Visitor::all()->count();
-		
-		$response = new Response($count);
-		return $response;
+		return $count;
 	}
 }
