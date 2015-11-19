@@ -5,4 +5,3 @@
 */vendor
 auth.json
 *.gitignore
-albin/.env
