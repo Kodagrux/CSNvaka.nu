@@ -195,6 +195,12 @@ Y88b  d88P Y88b. .d88P Y88b. .d88P 888   Y8888     888     888  .d88P Y88b. .d88
 	}
 }
 
+/*.ClassyCountdown-days, .ClassyCountdown-hours, .ClassyCountdown-minutes, .ClassyCountdown-seconds {
+	opacity: 0;
+	.transition(all 0.2s ease-in-out); 
+}*/
+
+
 /*
 .no-days {
 	width: 25% !important; 
@@ -246,8 +252,8 @@ Y88b  d88P Y88b. .d88P 888           888     8888P   Y8888 888  T88b    888     
 	margin: auto;
 	text-align: center;
 	padding-top: 10vh;
-	opacity: 0.6;
-	.transition(all 0.1s ease-in-out);
+	opacity: 0;
+	.transition(all 0.25s ease-in-out);
 
 
 	#share {
@@ -256,6 +262,8 @@ Y88b  d88P Y88b. .d88P 888           888     8888P   Y8888 888  T88b    888     
         padding-left: 5.5%;
         height: 32px;
         width: 320px;
+        opacity: 0;
+        .transition(all 0.25s ease-in-out);
 
 
         a { //Fix for twitter button text
@@ -269,6 +277,10 @@ Y88b  d88P Y88b. .d88P 888           888     8888P   Y8888 888  T88b    888     
         #facebook {
         	margin-top: -7px;
         }
+
+        &.intro {
+			opacity: 1;
+		}
     }
 	p {
 		
@@ -285,6 +297,11 @@ Y88b  d88P Y88b. .d88P 888           888     8888P   Y8888 888  T88b    888     
 
 		
 	}
+
+	&.intro {
+		opacity: 0.6;
+	}
+
 
 	&:hover {
 		opacity: 1;
@@ -322,7 +339,12 @@ Y88b  d88P Y88b. .d88P 888           888     8888P   Y8888 888  T88b    888     
 	margin: 0px auto 0px auto;
 	width: 200px;
 	text-align: center;
-	opacity: 0.2;
+	opacity: 0;
+	.transition(all 0.25s ease-in-out);
+	
+	&.intro {
+		opacity: 0.2;
+	}
 }
 
 

@@ -56,9 +56,9 @@
 			</div>
 			<p>
 				Ett projekt av 
-	            <a href="http://albinhubsch.se" title="Albins Hemsida" target="_blank">Albin H&uuml;bsch</a>, 
-	            <a href="http://www.arvidbrane.se/" title="Arvids Hemsida" target="_blank">Arvid Br&auml;ne</a> & 
-	            <a href="http://www.andreasgrunewald.se" title="Andreas Gr&uuml;newald" target="_blank">Andreas Gr&uuml;newald</a>
+	            <a href="http://albinhubsch.se" title="Öppna Albins portfolio i ett nytt fönster" target="_blank">Albin H&uuml;bsch</a>, 
+	            <a href="http://www.arvidbrane.se/" title="Öppna Arvids portfolio i ett nytt fönster" target="_blank">Arvid Br&auml;ne</a> & 
+	            <a href="http://www.andreasgrunewald.se" title="Öppna Andreas portfolio i ett nytt fönster" target="_blank">Andreas Gr&uuml;newald</a>
 	        </p>
 		</div>
 
@@ -82,6 +82,6 @@
 	<script src="js/jquery.knob.js" type="text/javascript"></script>
 	<script src="js/jquery.throttle.js" type="text/javascript"></script>
 	<script src="js/jquery.classycountdown.js" type="text/javascript"></script>
-	<script src="js/main.min.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
 
 </html>

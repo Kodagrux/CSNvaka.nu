@@ -99,6 +99,32 @@ $(document).ready(function () {
 
 	$("#hero").addClass("fade-in");
 
+	setTimeout(function(){ 
+		$("#logo").addClass("intro");
+	}, 1000);
+
+	setTimeout(function(){ 
+		$("#copywrite").addClass("intro");
+	}, 1500);
+
+	setTimeout(function(){ 
+		$("#share").addClass("intro");
+	}, 2500);
+	/*
+	setTimeout(function(){ 
+		$(".ClassyCountdown-days").addClass("fade-in").delay(50).queue(function(next){
+			$(".ClassyCountdown-hours").addClass("fade-in").delay(50).queue(function(next){
+				$(".ClassyCountdown-minutes").addClass("fade-in").delay(50).queue(function(next){
+					$(".ClassyCountdown-seconds").addClass("fade-in");
+					next();
+				});
+				next();
+			});	
+			next();
+		});	
+	}, 200);*/
+
+
 	//"Scroll to"-function
 	/*$(function(){
 			$('a[href*=#]').click(function() {
