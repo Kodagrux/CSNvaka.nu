@@ -56,6 +56,8 @@ $app->group(['middleware' => 'App\Http\Middleware\BasicAuth', 'prefix' => 'admin
 	$app->get('/', 'App\Http\Controllers\admin@getSignIn');
 	$app->post('/', 'App\Http\Controllers\admin@postSignIn');
 
+	$app->get('cp', 'App\Http\Controllers\admin@getCP');
+
 	// 
 	$app->get('addDate', 'App\Http\Controllers\admin@addDate');
 

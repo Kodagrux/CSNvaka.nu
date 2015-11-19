@@ -30,14 +30,14 @@ class admin extends Controller
 
 		if ($pass == 'asd') {
 			// Create response with admin cookie
-			$response = new Response();
-			$response->withCookie(cookie('CVADM', 'true', 30));
+			// $response = new Response('');
+			// $response->withCookie(cookie('CVADM', 'true', 30));
 
 			// return 'hej';
 
-			// return response()->withCookie(cookie('CVADM', 'hej', 30))->view('admin-cp');
+			return redirect('admin/cp')->withCookie(cookie('CVADM', 'true', 30));
 
-			return $response;
+			// return $response;
 		}else{
 			return 'wrong password';
 		}
@@ -47,12 +47,16 @@ class admin extends Controller
 	 * [controlPanel description]
 	 * @return [type] [description]
 	 */
-	public function controlPanel()
+	public function getCP(Request $request)
 	{
 		// return 'admin control panel';
+		$adm = $request->cookie('CVADM');
 
-		
-		return view('admin-login');
+		if ($adm == 'true') {
+			return view('admin-cp');
+		}else{
+			return redirect('admin');
+		}
 	}
 
 	/**
