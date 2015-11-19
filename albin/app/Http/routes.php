@@ -53,7 +53,8 @@ $app->group(['prefix' => 'api/visitor'], function($app){
 $app->group(['middleware' => 'App\Http\Middleware\BasicAuth', 'prefix' => 'admin'], function($app){
 	
 	// 
-	$app->get('/', 'App\Http\Controllers\admin@controlPanel');
+	$app->get('/', 'App\Http\Controllers\admin@getSignIn');
+	$app->post('/', 'App\Http\Controllers\admin@postSignIn');
 
 	// 
 	$app->get('addDate', 'App\Http\Controllers\admin@addDate');

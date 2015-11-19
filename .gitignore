@@ -1,6 +1,4 @@
-
 *.sublime-project
-
 *.sublime-workspace
 */vendor
 auth.json
