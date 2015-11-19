@@ -190,8 +190,9 @@ $(document).ready(function () {
 
 	    //customToolTips: true,						// tooltips shown on hover 
 	    tooltipEvents: ["mousemove", "touchstart", "touchmove"],
-	    tooltipFillColor: "rgba(255,255,255,0.6)",
+	    tooltipFillColor: "rgba(255,255,255,0.5)",
 	    tooltipFontColor: "#5A9CAA",
+	    tooltipTitleFontStyle: "bold",
 	    tooltipTemplate: "<%= value %> besökare",
 	    scaleLabel: "<%=value%>",
 	});
