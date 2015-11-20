@@ -35,7 +35,7 @@ class admin extends Controller
 
 			// return 'hej';
 
-			return redirect('admin/cp')->withCookie(cookie('CVADM', 'true', 30));
+			return redirect('admin/cp')->withCookie(cookie('CVADM', 'true', 20));
 
 			// return $response;
 		}else{
@@ -53,7 +53,10 @@ class admin extends Controller
 		$adm = $request->cookie('CVADM');
 
 		if ($adm == 'true') {
-			return view('admin-cp');
+
+			$dates = PayDate::where('date', '>=', date('Y-m-d'))->orderBy('date', 'asc')->get();
+
+			return view('admin-cp')->with('dates', $dates);
 		}else{
 			return redirect('admin');
 		}
