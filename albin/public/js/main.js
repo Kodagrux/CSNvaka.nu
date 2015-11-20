@@ -3,13 +3,11 @@ var nextPayDate = 0;
 
 // Count Down
 $.get(("../api/university/nextDate"), function(nextDate){
-    	var datez = new Date(2015, 11, 12, 23, 59, 59);
-    	nextPayDate = nextDate*1000;
-        //console.log(nextPayDate);
-        //console.log(datez.getTime());
-        //console.log($.now());
-
-       
+	var datez = new Date(2015, 11, 12, 23, 59, 59);
+	nextPayDate = nextDate*1000;
+    //console.log(nextPayDate);
+    //console.log(datez.getTime());
+    //console.log($.now());
     
 	var fezt = new Date(2015, 11, 12, 23, 59, 59);
 
@@ -183,25 +181,21 @@ $(document).ready(function () {
 		}
 	}*/
 
-	var chart_data = [0,0,0,0,0,0,0,0,0,0,0,0,0];
-
 	var data = {
 		 labels: ["", "", "", "", "", "", "", "", "", "", "", "", ""],
 		datasets: [
 			{
 				label: "Time",
 				fillColor: "rgba(220,220,220,0.2)",
-				strokeColor: "rgba(255,255,255,0)",
+				strokeColor: "rgba(0,0,0,0)",
 				highlightFill: "rgba(220,220,220,0.4)",
-				highlightStroke: "rgba(220,220,220,0.4)",
-				data: chart_data
+				highlightStroke: "rgba(0,0,0,0)",
+				data: [0,0,0,0,0,0,0,0,0,0,0,0,0]
 			}
 		]
 	};
 
 	var ctx = document.getElementById("myChart").getContext("2d");
-	// myNewChart = 0;
-	//setTimeout(function() {
 	var	myNewChart = new Chart(ctx).Bar(data, {
 	    barShowStroke: false,
 	    responsive: true,
@@ -222,62 +216,6 @@ $(document).ready(function () {
 	    tooltipTemplate: "<%= value %> besökare",
 	    scaleLabel: "<%=value%>",
 	});
-	//}, 1500);
-
-	/*setInterval(function() {
-		console.log(myNewChart);
-		//myNewChart.datasets[0].bars[2].value = 0;// = chart_data2;
-		myNewChart.removeData();
-		myNewChart.addData([60], "");
-		myNewChart.update();
-		//alert("herro!!!");
-	}, 1500);*/
-
-/*	
-	var myNewChart = new Chart(ctx).Line(data, {
-	    barShowStroke: false,
-	    responsive: true,
-	    maintainAspectRatio: true,
-	    scaleBeginAtZero : true,
-	    
-	    scaleShowLabels : false,					// hides y-axis labels
-	    scaleShowGridLines: false,					// Hides grid-lines						// pixel width of bar strokes
-	    barValueSpacing: 5,						// space between x-value sets
-	    scaleLineColor: "transparent",				// color of x / y -axises
-	    //scaleFontColor: "rgba(255,255,255,0.2)",		// scale font color
-
-	    customToolTips: true,						// tooltips shown on hover 
-	    tooltipEvents: ["mousemove", "touchstart", "touchmove"],
-	    tooltipFillColor: "rgba(255,255,255,0.8)",
-	    tooltipTitleFontColor: "#5A9CAA",
-	    tooltipTemplate: "<%= value %>",
-	    scaleLabel: "<%=value%>",
-	});
-
-	myNewChart.datasets[0].bars[0].fillColor  = "rgba(220,220,200,.07";
-	myNewChart.datasets[0].bars[1].fillColor  = "rgba(220,220,200,.07";
-	myNewChart.datasets[0].bars[2].fillColor  = "rgba(220,220,200,.07";
-	myNewChart.datasets[0].bars[3].fillColor  = "rgba(220,220,200,.07";
-	myNewChart.datasets[0].bars[4].fillColor  = "rgba(220,220,200,.07";
-	myNewChart.datasets[0].bars[5].fillColor  = "rgba(220,220,200,.07";
-	myNewChart.datasets[0].bars[6].fillColor  = "rgba(220,220,200,.07";
-	myNewChart.datasets[0].bars[7].fillColor  = "rgba(220,220,200,.08";
-	myNewChart.datasets[0].bars[8].fillColor  = "rgba(220,220,200,.09";
-	myNewChart.datasets[0].bars[9].fillColor  = "rgba(220,220,200,.1";
-	myNewChart.datasets[0].bars[10].fillColor = "rgba(220,220,200,.15";
-	myNewChart.datasets[0].bars[11].fillColor = "rgba(220,220,200,.2";
-	myNewChart.datasets[0].bars[12].fillColor = "rgba(220,220,200,.25";
-	myNewChart.datasets[0].bars[13].fillColor = "rgba(220,220,200,.3";
-	myNewChart.datasets[0].bars[14].fillColor = "rgba(220,220,200,.3";
-	myNewChart.datasets[0].bars[15].fillColor = "rgba(220,220,200,.4";
-	myNewChart.datasets[0].bars[16].fillColor = "rgba(220,220,200,.5";
-	myNewChart.datasets[0].bars[17].fillColor = "rgba(220,220,200,.6";
-	myNewChart.update();*/
-
-
-
-
-
 
 
 
@@ -291,15 +229,25 @@ $(document).ready(function () {
     var visitorsOnline = 0;
     var userID = 0;
     $.get("../api/visitor/setVisitor", function(user_id){
-       // Uonline.html(getNumOfOnline1); //skriva om domen
-       	//console.log(user_id);
         userID = user_id;
 
         $.get(("../api/visitor/updateVisitor/" + userID), function(visitors_online){
 	        visitorsOnline = visitors_online;
-	        //console.log(visitors_online);
 	        myNewChart.removeData();
 	        myNewChart.addData([visitors_online], "");
+            myNewChart.datasets[0].bars[12].fillColor = "rgba(255,255,255,0.4)";
+            myNewChart.datasets[0].bars[11].fillColor = "rgba(255,255,255,0.2)";
+            myNewChart.datasets[0].bars[10].fillColor = "rgba(255,255,255,0.2)";
+            myNewChart.datasets[0].bars[9].fillColor = "rgba(255,255,255,0.2)";
+            myNewChart.datasets[0].bars[8].fillColor = "rgba(255,255,255,0.2)";
+            myNewChart.datasets[0].bars[7].fillColor = "rgba(255,255,255,0.2)";
+            myNewChart.datasets[0].bars[6].fillColor = "rgba(255,255,255,0.2)";
+            myNewChart.datasets[0].bars[5].fillColor = "rgba(255,255,255,0.2)";
+            myNewChart.datasets[0].bars[4].fillColor = "rgba(255,255,255,0.2)";
+            myNewChart.datasets[0].bars[3].fillColor = "rgba(255,255,255,0.2)";
+            myNewChart.datasets[0].bars[2].fillColor = "rgba(255,255,255,0.2)";
+            myNewChart.datasets[0].bars[1].fillColor = "rgba(255,255,255,0.2)";
+            myNewChart.datasets[0].bars[0].fillColor = "rgba(255,255,255,0.2)";
 	        myNewChart.update();
 	    });
         
@@ -310,12 +258,21 @@ $(document).ready(function () {
     window.setInterval(function(){
         
         $.get("../api/visitor/updateVisitor/" + userID, function(visitors_online){
-        	//console.log("old: " + visitorsOnline);
-        	//console.log("new: " + visitors_online);
         	if (visitors_online != visitorsOnline) {
-        		//console.log("diffar! " + visitors_online);
         		myNewChart.removeData();
 	            myNewChart.addData([visitors_online], "");
+	            myNewChart.datasets[0].bars[12].fillColor = "rgba(255,255,255,0.4)";
+	            myNewChart.datasets[0].bars[11].fillColor = "rgba(255,255,255,0.2)";
+	            myNewChart.datasets[0].bars[10].fillColor = "rgba(255,255,255,0.2)";
+	            myNewChart.datasets[0].bars[9].fillColor = "rgba(255,255,255,0.2)";
+	            myNewChart.datasets[0].bars[8].fillColor = "rgba(255,255,255,0.2)";
+	            myNewChart.datasets[0].bars[7].fillColor = "rgba(255,255,255,0.2)";
+	            myNewChart.datasets[0].bars[6].fillColor = "rgba(255,255,255,0.2)";
+	            myNewChart.datasets[0].bars[5].fillColor = "rgba(255,255,255,0.2)";
+	            myNewChart.datasets[0].bars[4].fillColor = "rgba(255,255,255,0.2)";
+	            myNewChart.datasets[0].bars[3].fillColor = "rgba(255,255,255,0.2)";
+	            myNewChart.datasets[0].bars[2].fillColor = "rgba(255,255,255,0.2)";
+	            myNewChart.datasets[0].bars[1].fillColor = "rgba(255,255,255,0.2";
 	            myNewChart.update();
         	}
 

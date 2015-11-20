@@ -17,7 +17,6 @@
 
 		<!-- Stylesheets -->
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<link rel="stylesheet" type="text/css" href="css/jquery.classycountdown.min.css" />
 
 		<!-- Fonts -->
 		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:200italic,200,300,300italic,400,400italic' rel='stylesheet' type='text/css'>
