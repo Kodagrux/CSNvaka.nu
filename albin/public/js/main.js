@@ -235,7 +235,7 @@ $(document).ready(function () {
 	        visitorsOnline = visitors_online;
 	        myNewChart.removeData();
 	        myNewChart.addData([visitors_online], "");
-            myNewChart.datasets[0].bars[12].fillColor = "rgba(255,255,255,0.4)";
+            myNewChart.datasets[0].bars[12].fillColor = "rgba(255,255,255,0.35)";
             myNewChart.datasets[0].bars[11].fillColor = "rgba(255,255,255,0.2)";
             myNewChart.datasets[0].bars[10].fillColor = "rgba(255,255,255,0.2)";
             myNewChart.datasets[0].bars[9].fillColor = "rgba(255,255,255,0.2)";
@@ -261,7 +261,7 @@ $(document).ready(function () {
         	if (visitors_online != visitorsOnline) {
         		myNewChart.removeData();
 	            myNewChart.addData([visitors_online], "");
-	            myNewChart.datasets[0].bars[12].fillColor = "rgba(255,255,255,0.4)";
+	            myNewChart.datasets[0].bars[12].fillColor = "rgba(255,255,255,0.35)";
 	            myNewChart.datasets[0].bars[11].fillColor = "rgba(255,255,255,0.2)";
 	            myNewChart.datasets[0].bars[10].fillColor = "rgba(255,255,255,0.2)";
 	            myNewChart.datasets[0].bars[9].fillColor = "rgba(255,255,255,0.2)";
