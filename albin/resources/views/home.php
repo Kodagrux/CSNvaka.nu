@@ -64,10 +64,11 @@
 				Ett projekt av 
 	            <a href="http://albinhubsch.se" title="Öppna Albins portfolio i ett nytt fönster" target="_blank">Albin H&uuml;bsch</a>, 
 	            <a href="http://www.arvidbrane.se/" title="Öppna Arvids portfolio i ett nytt fönster" target="_blank">Arvid Br&auml;ne</a> & 
-	            <a href="http://www.andreasgrunewald.se" title="Öppna Andreas portfolio i ett nytt fönster" target="_blank">Andreas Gr&uuml;newald</a>
+	            <a href="http://www.andreasgrunewald.se" title="Öppna Andreas portfolio i ett nytt fönster" target="_blank">Andreas Gr&uuml;newald</a>.  
+	            <a href="https://github.com/Kodagrux/CSNvaka.nu" title="Öppna GitHub" target="_blank">Gaffla oss på GitHub!</a>.
 	        </p>
 		</div>
-
+		
 		<!-- Statistics Layer -->
 		<div id="stats-container">
 			<canvas id="myChart"></canvas>
