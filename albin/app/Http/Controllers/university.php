@@ -53,10 +53,24 @@ class university extends Controller
 	{
 		$blacklist = array(7, 8); // Svartlistade månader då csn inte betalas ut
 
-		if ((int)date('n') == 12 && (int)date('j') == 27) {
-			// Du är ok att köra
-			$year = date('Y');
-			for ($i=1; $i <= 12; $i++) { 
+		$lastDBdate = PayDate::orderBy('date', 'desc')->first();
+
+		$year = date('Y', strtotime($lastDBdate->date));
+		$yearNow = date('Y');
+
+		if ( (int)$year - (int)$yearNow > 3 ) {
+			// Du får bara lägga in i databasen för 3 år framåt
+			return redirect('admin/cp');
+		}else{
+
+			$k = (int)date('m', strtotime($lastDBdate->date));
+
+			if ((int)date('m', strtotime($lastDBdate->date)) == 12) {
+				$year = (string)((int)$year + 1);
+				$k = 1;
+			}
+
+			for ($i=$k; $i <= 12; $i++) { 
 				if (!in_array($i, $blacklist)) {
 					$pd = new PayDate();
 					if ($i < 10) {
@@ -68,12 +82,9 @@ class university extends Controller
 					$pd->save();
 				}
 			}
-		}else{
-			return 'no no';
-		}
 
-		$response = new Response('done');
-		return $response;
+			return redirect('admin/cp');
+		}
 	}
 
 	/**

@@ -13,7 +13,19 @@ class BasicAuth {
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+
+        // return 'admin control panel';
+        $adm = $request->cookie('CVADM');
+
+        if ($adm == 'true') {
+
+            return $next($request);
+
+        }else{
+
+            return redirect('admin');
+
+        }
     }
 
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\PayDate;
+use \App\AdmUser;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
@@ -28,19 +29,9 @@ class admin extends Controller
 	{
 		$pass = $request->input('password');
 
-		if ($pass == 'asd') {
-			// Create response with admin cookie
-			// $response = new Response('');
-			// $response->withCookie(cookie('CVADM', 'true', 30));
+		$admuser = AdmUser::where('password', $pass)->firstOrFail();
 
-			// return 'hej';
-
-			return redirect('admin/cp')->withCookie(cookie('CVADM', 'true', 20));
-
-			// return $response;
-		}else{
-			return 'wrong password';
-		}
+		return redirect('admin/cp')->withCookie(cookie('CVADM', 'true', 20));
 	}
 
 	/**
@@ -49,17 +40,43 @@ class admin extends Controller
 	 */
 	public function getCP(Request $request)
 	{
-		// return 'admin control panel';
-		$adm = $request->cookie('CVADM');
 
-		if ($adm == 'true') {
+		$dates = PayDate::where('date', '>=', date('Y-m-d'))->orderBy('date', 'asc')->get();
 
-			$dates = PayDate::where('date', '>=', date('Y-m-d'))->orderBy('date', 'asc')->get();
+		return view('admin-cp')->with('dates', $dates);
+	}
 
-			return view('admin-cp')->with('dates', $dates);
-		}else{
-			return redirect('admin');
-		}
+	/**
+	 * [deleteDate description]
+	 * @return [type] [description]
+	 */
+	public function deleteDate($id)
+	{
+		$pd = PayDate::findOrFail($id)->delete();
+		return redirect('admin/cp');
+	}
+
+	/**
+	 * [editDate description]
+	 * @return [type] [description]
+	 */
+	public function editDate($id)
+	{	
+		$paydate = PayDate::find($id);
+		return view('admin-cp')->with('paydate', $paydate);
+	}
+
+	/**
+	 * [editDate description]
+	 * @return [type] [description]
+	 */
+	public function postEditDate($id, Request $request)
+	{	
+		$paydate = PayDate::find($id);
+		$paydate->date = $request->date;
+		$paydate->save();
+
+		return redirect('admin/cp');
 	}
 
 	/**
@@ -67,6 +84,18 @@ class admin extends Controller
 	 */
 	public function addDate()
 	{
-		return 'admin/add date';
+		return view('admin-cp-add');
+	}
+
+	/**
+	 * [addDate description]
+	 */
+	public function postAddDate(Request $request)
+	{
+		$paydate = new PayDate();
+		$paydate->date = $request->date;
+		$paydate->save();
+
+		return redirect('admin/cp');
 	}
 }

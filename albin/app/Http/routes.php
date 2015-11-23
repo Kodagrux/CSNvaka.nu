@@ -29,7 +29,7 @@ $app->group(['prefix' => 'api/university'], function($app){
 	$app->get('previousDate', 'App\Http\Controllers\university@previousDate');
 
 	// 
-	$app->get('fillDatabase', 'App\Http\Controllers\university@fillDatabase');
+	// $app->get('fillDatabase', 'App\Http\Controllers\university@fillDatabase');
 });
 
 /**
@@ -50,16 +50,30 @@ $app->group(['prefix' => 'api/visitor'], function($app){
 /**
  * 
  */
-$app->group(['middleware' => 'App\Http\Middleware\BasicAuth', 'prefix' => 'admin'], function($app){
+$app->group(['prefix' => 'admin'], function($app){
 	
 	// 
 	$app->get('/', 'App\Http\Controllers\admin@getSignIn');
 	$app->post('/', 'App\Http\Controllers\admin@postSignIn');
 
-	$app->get('cp', 'App\Http\Controllers\admin@getCP');
-
 	// 
-	$app->get('addDate', 'App\Http\Controllers\admin@addDate');
+	// $app->get('addDate', 'App\Http\Controllers\admin@addDate');
+
+	$app->group(['middleware' => 'App\Http\Middleware\BasicAuth', 'prefix' => 'admin/cp'], function($app){
+
+		$app->get('/', 'App\Http\Controllers\admin@getCP');
+
+		$app->get('/delete/{id}', 'App\Http\Controllers\admin@deleteDate');
+
+		$app->get('/edit/{id}', 'App\Http\Controllers\admin@editDate');
+		$app->post('/edit/{id}', 'App\Http\Controllers\admin@postEditDate');
+
+		$app->get('/add', 'App\Http\Controllers\admin@addDate');
+		$app->post('/add', 'App\Http\Controllers\admin@postAddDate');
+
+		$app->get('/generate', 'App\Http\Controllers\university@fillDatabase');
+
+	});
 
 });
 
