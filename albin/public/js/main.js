@@ -21,7 +21,7 @@ $.get(("../api/university/nextDate"), function(nextDate){
 		theme: "white", 
 
 		// end time
-		end: $.now() + Math.floor((nextPayDate - $.now())/1000),//645600, 
+		end: $.now() + 5,//+ Math.floor((nextPayDate - $.now())/1000),//645600, 
 		now: $.now(),
 
 		// whether to display the days/hours/minutes/seconds labels.
@@ -82,8 +82,88 @@ $.get(("../api/university/nextDate"), function(nextDate){
 
 		// callback that is fired when the countdown reaches 0.
 		onEndCallback: function() {
-			//alert ("slut!");
-		}
+			$("body").append('<audio autoplay><source src="audio/BanjoBoys.mp3" type="audio/mpeg"></audio>');
+			$("head").append('<META HTTP-EQUIV="refresh" CONTENT="85">');
+			setTimeout(function(){ 
+				$("#countdown-container").css({opacity: "0"});
+			}, 500);
+			setTimeout(function(){ 
+				$("#payout").css({opacity: "1"});
+			}, 1000);
+			//$("head").append('');
+
+			//Refresh
+			//alert ("Nu kom CSN! :D");
+						///////////
+					    if (!image_urls) {
+					        var image_urls = Array()
+					    }
+					    if (!flash_urls) {
+					        var flash_urls = Array()
+					    }
+					    image_urls['rain1'] = "img/bill.gif";
+					    image_urls['rain2'] = "img/bill2.gif";
+					    image_urls['rain3'] = "img/bill3.gif";
+					    image_urls['rain4'] = "img/bill4.gif";
+					    image_urls['rain5'] = "img/bill5.gif";
+					    image_urls['rain6'] = "img/bill6.gif";
+					    image_urls['rain7'] = "img/bill7.gif";
+
+					    $(document).ready(function() {
+					        var c = $(window).width()+100;
+					        var d = $(window).height()+100;
+					        var e = function(a, b) {
+					            return Math.round(a + (Math.random() * (b - a)))
+					        };
+					        var f = function(a) {
+					            setTimeout(function() {
+					                a.css({
+					                    left: e(0, c-50) + 'px',
+					                    top: '-30px',
+					                    display: 'block',
+					                    opacity: '0.' + e(50, 100)
+					                }).animate({
+					                    top: (d-100) + 'px'
+					                }, e(2000, 6000), function() {
+					                    $(this).fadeOut('slow', function() {
+					                        f(a)
+					                    })
+					                })
+					            }, e(1, 5000))
+					        };
+					        $('<div></div>').attr('id', 'rainDiv')
+					            .css({
+					                position: 'fixed',
+					                width: (c - 70) + 'px',
+					                height: '1px',
+					                left: '0px',
+					                top: '-5px',
+					                display: 'block'
+					            }).appendTo('body');
+					        for (var i = 1; i <= c/10; i++) {
+					            var g = $('<img/>').attr('src', image_urls['rain' + e(1, 7)])
+					                .css({
+					                    position: 'absolute',
+					                    left: e(0, c) + 'px',
+					                    top: '-30px',
+					                    display: 'block',
+					                    opacity: '0.' + e(50, 100),
+					                    'margin-left': 0
+					                }).addClass('rainDrop').appendTo('#rainDiv');
+					            f(g);
+					            g = null
+					        };
+					        var h = 0;
+					        var j = 0;
+					        $(window).resize(function() {
+					            c = $(window).width();
+					            d = $(window).height()
+					        })
+					    });
+//////////////////
+
+
+		} 
 
 	});
 });
