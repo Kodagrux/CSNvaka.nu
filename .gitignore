@@ -2,5 +2,4 @@
 *.sublime-workspace
 */vendor
 auth.json
-*.gitignore
 www/.env
