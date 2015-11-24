@@ -5,6 +5,8 @@
 
 	<link rel="stylesheet" href="{{{ url() }}}/bootstrap/css/bootstrap.min.css">
 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+
 	<style>
 		header{
 			background: #333;
@@ -20,6 +22,11 @@
 			text-decoration: none;
 			background: #222;
 		}
+
+		.navbar-top h1{
+			font-size: 12px;
+			color: white;
+		}
 	</style>
 
 </head>
@@ -27,6 +34,11 @@
 	<header class="navbar-top">
 		<div class="container">
 			<div class="row">
+				<div class="col-xs-6">
+					<nav class="navbar-header navbar-left">
+						<h1>CSNVAKA Admin</h1>
+					</nav>
+				</div>
 				<div class="col-xs-3 navbar-right">
 					<nav class="navbar-header navbar-right">
 						<a href="{{{ url() }}}">csnvaka.nu</a>
