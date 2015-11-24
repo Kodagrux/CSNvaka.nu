@@ -18,6 +18,13 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-title" content="CSNvaka">
 
+		<!-- Chrome, Firefox OS and Opera -->
+		<meta name="theme-color" content="#5396A6">
+		<!-- Windows Phone -->
+		<meta name="msapplication-navbutton-color" content="#5396A6">
+		<!-- iOS Safari -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="#5396A6">
+
 		<!-- Stylesheets -->
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 
