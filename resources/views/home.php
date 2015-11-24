@@ -8,7 +8,7 @@
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<html lang="sv">
-		<title>CSNvaka.nu | Nästa CSN-utbetalning kommer</title>
+		<title>CSNvaka.nu | Nästa CSN-utbetalning kommer <?=$nextDate->date?></title>
 
 		<!-- Favicon -->
 		<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
@@ -30,6 +30,15 @@
 		<meta name="msapplication-navbutton-color" content="#5396A6">
 		<!-- iOS Safari -->
 		<meta name="apple-mobile-web-app-status-bar-style" content="#5396A6">
+
+		<!-- Facebook Open Graph tags -->
+		<meta property="og:title" content="CSNvaka.nu | Nästa CSN-utbetalning kommer <?=$nextDate->date?>" />
+		<meta property="og:site_name" content="CSNvaka.nu"/>
+		<meta property="og:url" content="http://csnvaka.nu" />
+		<meta property="og:description" content="Var med och vaka till nästa utbetalning av CSN den <?=$nextDate->date?>!" />
+		<meta property="fb:app_id" content="[FB_APP_ID]" />
+		<meta property="og:type" content="article" />
+
 
 		<!-- Stylesheets -->
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
