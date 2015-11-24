@@ -51,11 +51,13 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="#5396A6">
 
 		<!-- Facebook Open Graph tags -->
+		<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
 		<meta property="og:title" content="CSNvaka.nu | Nästa CSN-utbetalning kommer <?=$nextDate->date?>" />
 		<meta property="og:site_name" content="CSNvaka.nu"/>
 		<meta property="og:url" content="http://csnvaka.nu" />
 		<meta property="og:description" content="På csnvaka.nu kan du enkelt ta reda på när du nästa gång kommer dra in cash. Delta i vakan och räkna in dagen! Nästa utbetalning av CSN kommer den <?=$nextDate->date?>!" />
-		<meta property="og:image" content="" />
+		<meta property="og:image" content="img/promo-img.png" />
+		<meta property="og:type" content="website" />
 		<meta property="fb:app_id" content="250815961648239" />
 
 
