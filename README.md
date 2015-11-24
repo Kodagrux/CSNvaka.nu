@@ -1,14 +1,14 @@
 ##CSNvaka.nu
-A project about money...
+Comming soon
 
 
 
 ###Get Involved
-Lorem Ipsum
+Comming soon
 
 
 ###Report Issues
-Lorem Ipsum
+Comming soon
 
 
 ###License
@@ -18,5 +18,5 @@ MIT v.3, see the [license](https://github.com/Kodagrux/MeshNet/blob/master/LICEN
 ###Contributors
 - [Arvid Bräne](http://arvidbrane.com)
 - [Albin Hübsch](http://albinhubsch.se)
-- [Andreas Grünewald](http://englundlars.se)
+- [Andreas Grünewald](http://andreasgrunewald.se)
 
