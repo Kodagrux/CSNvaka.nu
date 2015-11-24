@@ -48,7 +48,7 @@
 
 
 		<!-- Copywrite and Share -->
-		<div id="logo"></div>
+		<img id="logo" src="img/logo.png" alt="Logo"/>
 
 
 		<!-- Coundown Layer -->
