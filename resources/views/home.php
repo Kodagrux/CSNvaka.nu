@@ -35,7 +35,7 @@
 
 		<meta name="author" content="Arvid Bräne, Albin Hübsch, Andreas Grünewald" />
 		<meta name="keywords" content="Money, Payday, CSN, csnvaka, Half Life 3, vaka, nedräkning, countdown, nästa, utbetalning, studiemedel, studielån, pengar, studiemedlet, datum, lån" />
-		<meta name="description" content="Var med och vaka till nästa utbetalning av CSN den <?=$nextDate->date?>!" />
+		<meta name="description" content="På csnvaka.nu kan du enkelt ta reda på när du nästa gång kommer dra in cash. Delta i vakan och räkna in dagen! Nästa utbetalning av CSN kommer den <?=$nextDate->date?>!" />
 		<meta name="copyright" content="<?php echo date("Y"); ?>">
 	
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -54,9 +54,9 @@
 		<meta property="og:title" content="CSNvaka.nu | Nästa CSN-utbetalning kommer <?=$nextDate->date?>" />
 		<meta property="og:site_name" content="CSNvaka.nu"/>
 		<meta property="og:url" content="http://csnvaka.nu" />
-		<meta property="og:description" content="Var med och vaka till nästa utbetalning av CSN den <?=$nextDate->date?>!" />
-		<meta property="fb:app_id" content="[FB_APP_ID]" />
-		<meta property="og:type" content="article" />
+		<meta property="og:description" content="På csnvaka.nu kan du enkelt ta reda på när du nästa gång kommer dra in cash. Delta i vakan och räkna in dagen! Nästa utbetalning av CSN kommer den <?=$nextDate->date?>!" />
+		<meta property="og:image" content="" />
+		<meta property="fb:app_id" content="250815961648239" />
 
 
 		<!-- Stylesheets -->
