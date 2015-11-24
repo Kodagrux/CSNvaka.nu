@@ -95,12 +95,16 @@ $.get(("../api/university/nextDate"), function(nextDate){
 			//Refresh
 			//alert ("Nu kom CSN! :D");
 						///////////
+
+
 					    if (!image_urls) {
 					        var image_urls = Array()
 					    }
 					    if (!flash_urls) {
 					        var flash_urls = Array()
 					    }
+
+					    // Bilderna kommer igrån http://www.netanimations.net/Cash-money-dollars-monetary-clip-art-animations.htm
 					    image_urls['rain1'] = "img/bill.gif";
 					    image_urls['rain2'] = "img/bill2.gif";
 					    image_urls['rain3'] = "img/bill3.gif";
@@ -108,6 +112,7 @@ $.get(("../api/university/nextDate"), function(nextDate){
 					    image_urls['rain5'] = "img/bill5.gif";
 					    image_urls['rain6'] = "img/bill6.gif";
 					    image_urls['rain7'] = "img/bill7.gif";
+					    image_urls['rain8'] = "img/bill8.gif";
 
 					    $(document).ready(function() {
 					        var c = $(window).width()+100;
@@ -141,7 +146,7 @@ $.get(("../api/university/nextDate"), function(nextDate){
 					                display: 'block'
 					            }).appendTo('body');
 					        for (var i = 1; i <= c/10; i++) {
-					            var g = $('<img/>').attr('src', image_urls['rain' + e(1, 7)])
+					            var g = $('<img/>').attr('src', image_urls['rain' + e(1, 8)])
 					                .css({
 					                    position: 'absolute',
 					                    left: e(0, c) + 'px',
@@ -160,7 +165,7 @@ $.get(("../api/university/nextDate"), function(nextDate){
 					            d = $(window).height()
 					        })
 					    });
-//////////////////
+						//////////////////
 
 
 		} 
