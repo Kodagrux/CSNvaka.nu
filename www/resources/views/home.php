@@ -93,6 +93,6 @@
 	<script src="js/jquery.knob.js" type="text/javascript"></script>
 	<script src="js/jquery.throttle.js" type="text/javascript"></script>
 	<script src="js/jquery.classycountdown.js" type="text/javascript"></script>
-	<script src="js/main.js" type="text/javascript"></script>
+	<script src="js/main.min.js" type="text/javascript"></script>
 
 </html>

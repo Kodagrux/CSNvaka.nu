@@ -21,7 +21,7 @@ $.get(("../api/university/nextDate"), function(nextDate){
 		theme: "white", 
 
 		// end time
-		end: $.now() + 5,//+ Math.floor((nextPayDate - $.now())/1000),//645600, 
+		end: $.now() + Math.floor((nextPayDate - $.now())/1000),//645600, 
 		now: $.now(),
 
 		// whether to display the days/hours/minutes/seconds labels.
