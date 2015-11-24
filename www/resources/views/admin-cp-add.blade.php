@@ -24,8 +24,10 @@
 		}
 
 		.navbar-top h1{
-			font-size: 12px;
+			font-size: 14px;
 			color: white;
+			padding: 16px 0;
+			margin: 0;
 		}
 	</style>
 
