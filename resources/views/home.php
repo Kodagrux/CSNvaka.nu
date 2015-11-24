@@ -8,12 +8,12 @@
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<html lang="sv">
-		<title>CSNvaka.nu</title>
+		<title>CSNvaka.nu | Nästa CSN-utbetalning</title>
 		<meta name="author" content="Arvid Bräne, Albin Hübsch, Andreas Grünewald" />
-		<meta name="keywords" content="Money, Payday, CSN, csnvaka, Half Life 3, csn, vaka, nedräkning, countdown, nästa, utbetalning, studiemedel, studielån, pengar, studiemedlet, datum" />
-		<meta name="description" content="Vaka nedräkningen till nästa csn utbetalning" />
-		<meta name="copyright" content="2015">
-		<meta http-equiv="refresh" content="1000" />
+		<meta name="keywords" content="Money, Payday, CSN, csnvaka, Half Life 3, csn, vaka, nedräkning, countdown, nästa, utbetalning, studiemedel, studielån, pengar, studiemedlet, datum, lån" />
+		<meta name="description" content="Var med och vaka till nästa utbetalning av CSN!" />
+		<meta name="copyright" content="<?php echo date("Y"); ?>">
+	
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-title" content="CSNvaka">
@@ -54,6 +54,7 @@
 		<!-- Coundown Layer -->
 		<div id="countdown-container"></div>
 
+
 		<!-- CSN-betalning -->
 		<div id="payout">
 			Nu är du rik!
@@ -87,7 +88,6 @@
 
 	<!-- Scripts -->
 	<script src="js/HackTimer/HackTimer.min.js" type="text/javascript"></script>
-	<!-- <script src="js/user-management.js" type="text/javascript"></script>-->
 	<script src="js/jquery-min.js" type="text/javascript"></script>
 	<script src="js/Chart/Chart.min.js"></script>
 	<script src="js/jquery.knob.js" type="text/javascript"></script>
