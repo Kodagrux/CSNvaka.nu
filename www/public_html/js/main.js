@@ -21,7 +21,7 @@ $.get(("../api/university/nextDate"), function(nextDate){
 		theme: "white", 
 
 		// end time
-		end: $.now() + Math.floor((nextPayDate - $.now())/1000),//645600, 
+		end: $.now() + 65,//Math.floor((nextPayDate - $.now())/1000),//645600, 
 		now: $.now(),
 
 		// whether to display the days/hours/minutes/seconds labels.
@@ -173,7 +173,7 @@ $.get(("../api/university/nextDate"), function(nextDate){
 	});
 });
 
-
+ballChecker();
 
 
 
@@ -224,47 +224,6 @@ $(document).ready(function () {
 		});
 	});*/
 
-	// Hide unused balls
-	/*if (parseInt($("#day-value").html()) == 0) {
-		console.log("Zero Days!");
-		$(".ClassyCountdown-days").hide();
-		$("#countdown-container>div>div").addClass('no-days');
-		$("#countdown-container>div>div").css({
-			width: '25%',
-			height: '300px',
-			margin: '10px 4.14%'
-		});
-
-		if (parseInt($("#hour-value").html()) == 0) {
-			console.log("Zero Hours!");
-			$(".ClassyCountdown-hours").hide();
-			$("#countdown-container>div>div").addClass('no-hours');
-			$("#countdown-container>div>div").css({
-				width: '27%',
-				height: '324px',
-				margin: '10px 4.14%'
-			});
-
-			
-			$(".ClassyCountdown-minutes").css({
-				marginLeft: '19%'
-			});
-
-			$(".ClassyCountdown-minutes").addClass('no-hours-minutes');
-
-			if (parseInt($("#minute-value").html()) == 0) {
-				console.log("Zero Minutes!");
-				$(".ClassyCountdown-minutes").hide();
-				$("#countdown-container>div>div").addClass('no-minutes');
-				$("#countdown-container>div>div").css({
-					width: '30%',
-					height: '360px',
-					margin: '10px 35.5%'
-				});
-
-			}
-		}
-	}*/
 
 	var data = {
 		 labels: ["", "", "", "", "", "", "", "", "", "", "", "", ""],
@@ -357,7 +316,8 @@ $(document).ready(function () {
 	            myNewChart.datasets[0].bars[4].fillColor = "rgba(255,255,255,0.2)";
 	            myNewChart.datasets[0].bars[3].fillColor = "rgba(255,255,255,0.2)";
 	            myNewChart.datasets[0].bars[2].fillColor = "rgba(255,255,255,0.2)";
-	            myNewChart.datasets[0].bars[1].fillColor = "rgba(255,255,255,0.2";
+	            myNewChart.datasets[0].bars[1].fillColor = "rgba(255,255,255,0.2)";
+	            myNewChart.datasets[0].bars[0].fillColor = "rgba(255,255,255,0.2)";
 	            myNewChart.update();
         	}
 
@@ -374,8 +334,10 @@ $(document).ready(function () {
 
 
 
-
-
+	
+	//console.log(parseInt($("#day-value").html()));
+	// Hide unused balls
+	
 
 
 
@@ -406,3 +368,77 @@ js = d.createElement(s); js.id = id;
 js.src = "//connect.facebook.net/sv_SE/all.js#xfbml=1";
 fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
+
+
+function ballChecker() {
+	if (!isNaN(parseInt($("#day-value").html()))) {
+		hideBallz();
+		setInterval(function(){
+			hideBallz();
+		}, 1000)
+		
+	} else {
+		//console.log("NAN");
+		setTimeout(function(){
+			ballChecker();
+		}, 1)
+		
+	}
+}
+
+
+
+
+function hideBallz() {
+	if (parseInt($("#day-value").html()) == 0) {
+		$(".ClassyCountdown-days>span").css({
+			opacity: '0.3'
+		});
+		console.log("Zero Days!");
+		/*console.log("Zero Days!");
+		$(".ClassyCountdown-days").hide();
+
+		$("#countdown-container>div>div").addClass('no-days');
+		$("#countdown-container>div>div").css({
+			width: '25%',
+			height: '300px',
+			margin: '10px 4.14%'
+		});*/
+
+		if (parseInt($("#hour-value").html()) == 0) {
+			$(".ClassyCountdown-hours>span").css({
+			opacity: '0.3'
+		});
+			/*console.log("Zero Hours!");
+			$(".ClassyCountdown-hours").hide();
+			$("#countdown-container>div>div").addClass('no-hours');
+			$("#countdown-container>div>div").css({
+				width: '27%',
+				height: '324px',
+				margin: '10px 4.14%'
+			});
+
+			
+			$(".ClassyCountdown-minutes").css({
+				marginLeft: '19%'
+			});*/
+
+			//$(".ClassyCountdown-minutes").addClass('no-hours-minutes');
+
+			if (parseInt($("#minute-value").html()) == 0) {
+				$(".ClassyCountdown-minutes>span").css({
+					opacity: '0.3'
+				});
+				//console.log("Zero Minutes!");
+				//$(".ClassyCountdown-minutes").hide();
+				//$("#countdown-container>div>div").addClass('no-minutes');
+				/*$("#countdown-container>div>div").css({
+					width: '30%',
+					height: '360px',
+					margin: '10px 35.5%'
+				});*/
+
+			}
+		}
+	}
+}
