@@ -8,10 +8,16 @@
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<html lang="sv">
-		<title>CSNvaka.nu | Nästa CSN-utbetalning kommer <?=$nextDate->date?></title>
+		<title>CSNvaka.nu | Nästa CSN-utbetalning kommer</title>
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16" />
+
+
 		<meta name="author" content="Arvid Bräne, Albin Hübsch, Andreas Grünewald" />
-		<meta name="keywords" content="Money, Payday, CSN, csnvaka, Half Life 3, csn, vaka, nedräkning, countdown, nästa, utbetalning, studiemedel, studielån, pengar, studiemedlet, datum, lån" />
-		<meta name="description" content="Var med och vaka till nästa utbetalning av CSN!" />
+		<meta name="keywords" content="Money, Payday, CSN, csnvaka, Half Life 3, vaka, nedräkning, countdown, nästa, utbetalning, studiemedel, studielån, pengar, studiemedlet, datum, lån" />
+		<meta name="description" content="Var med och vaka till nästa utbetalning av CSN den <?=$nextDate->date?>!" />
 		<meta name="copyright" content="<?php echo date("Y"); ?>">
 	
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
