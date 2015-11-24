@@ -8,7 +8,7 @@
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<html lang="sv">
-		<title>CSNvaka.nu | Nästa CSN-utbetalning kommer </title>
+		<title>CSNvaka.nu | Nästa CSN-utbetalning kommer <?=$nextDate->date?></title>
 		<meta name="author" content="Arvid Bräne, Albin Hübsch, Andreas Grünewald" />
 		<meta name="keywords" content="Money, Payday, CSN, csnvaka, Half Life 3, csn, vaka, nedräkning, countdown, nästa, utbetalning, studiemedel, studielån, pengar, studiemedlet, datum, lån" />
 		<meta name="description" content="Var med och vaka till nästa utbetalning av CSN!" />

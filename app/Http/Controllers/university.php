@@ -11,6 +11,18 @@ use App\PayDate;
  */
 class university extends Controller
 {
+
+	/**
+	 * [getHome description]
+	 * @return [type] [description]
+	 */
+	public function getHome()
+	{
+		$date = PayDate::where('date', '>', date('Y-m-d'))->orderBy('date', 'asc')->first();
+		
+		return view('home')->with('nextDate', $date);
+	}
+
 	/**
 	 * [nextDate description]
 	 * @return [type] [description]

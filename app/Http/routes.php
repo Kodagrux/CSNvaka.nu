@@ -10,9 +10,7 @@
 */
 
 // Frontpage
-$app->get('/', function(){
-	return view('home');
-});
+$app->get('/', 'university@getHome');
 
 /**
  * 
