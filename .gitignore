@@ -1,5 +1,5 @@
 *.sublime-project
 *.sublime-workspace
-*/vendor
+/vendor
 auth.json
-www/.env
+.env
