@@ -394,7 +394,6 @@ function hideBallz() {
 		$(".ClassyCountdown-days>span").css({
 			opacity: '0.3'
 		});
-		console.log("Zero Days!");
 		/*console.log("Zero Days!");
 		$(".ClassyCountdown-days").hide();
 
